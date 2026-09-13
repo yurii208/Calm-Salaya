@@ -1383,18 +1383,788 @@
       }
     }
   </style>
+  <style id="salaya-editorial-styles">
+    #salayaEditorial {
+      --cream-hi: var(--card);
+      --cream-dp: var(--cream-2);
+      --brown-900: var(--brown);
+      --brown-800: #4A3A1B;
+      --brown-700: var(--brown-2);
+      --brown-500: var(--brown-2);
+      --brown-400: var(--muted);
+      --brown-300: #9A907A;
+      --ink: var(--text);
+      --ink-2: var(--muted);
+      --line: var(--line);
+      --line-str: rgba(62, 48, 24, .38);
+      --line-lt: rgba(243, 239, 228, .20);
+      --line-lt-s: rgba(243, 239, 228, .42);
+      --olive-700: var(--olive-d);
+      --olive-500: var(--olive);
+      --olive-300: #B9C09A;
+      --olive-100: #E4E7D7;
+      --ff-dis: 'Playfair Display', 'Noto Sans Thai', serif;
+      --ff-thai: 'Noto Sans Thai', sans-serif;
+      --ff-body: 'Noto Sans Thai', system-ui, sans-serif;
+      --ease: cubic-bezier(.22, 1, .36, 1);
+    }
+
+    #salayaEditorial .se-shell {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 clamp(18px, 3.6vw, 56px);
+    }
+
+    #salayaEditorial .se-rv {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 1s var(--ease), transform 1s var(--ease);
+    }
+
+    #salayaEditorial .se-rv.se-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    #salayaEditorial .se-rv-d1 {
+      transition-delay: .08s
+    }
+
+    #salayaEditorial .se-rv-d2 {
+      transition-delay: .16s
+    }
+
+    #salayaEditorial .se-rv-d3 {
+      transition-delay: .24s
+    }
+
+    #salayaEditorial .se-av {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--brown);
+    }
+
+    #salayaEditorial .se-day .btn {
+      border-radius: 999px;
+    }
+
+    #salayaEditorial .se-day .btn-olive {
+      background: var(--olive);
+      color: #fff;
+      border-color: var(--olive);
+    }
+
+    #salayaEditorial .se-day .btn-olive:hover {
+      background: var(--olive-d);
+      color: #fff;
+      border-color: var(--olive-d);
+    }
+
+    @media(max-width:1080px) {
+      #salayaEditorial .se-mani-grid {
+        grid-template-columns: 1fr
+      }
+
+      #salayaEditorial .se-svc {
+        grid-template-columns: 1fr;
+        gap: 22px
+      }
+
+      #salayaEditorial .se-svc.se-flip .se-svc-media {
+        order: 0
+      }
+
+      #salayaEditorial .se-svc-media {
+        aspect-ratio: 16/10
+      }
+    }
+
+    @media(max-width:760px) {
+      #salayaEditorial .se-stat-row {
+        gap: 24px
+      }
+
+      #salayaEditorial .se-mani-art {
+        aspect-ratio: 1/1.15
+      }
+
+      #salayaEditorial .se-hs-nav {
+        display: none
+      }
+
+      #salayaEditorial .se-day-foot .btn {
+        width: 100%
+      }
+    }
+
+    /* ══════════ MANIFESTO ══════════ */
+    #salayaEditorial .se-mani {
+      background: var(--cream-hi)
+    }
+
+    #salayaEditorial .se-mani-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(34px, 5.5vw, 88px);
+      align-items: center
+    }
+
+    #salayaEditorial .se-mani-txt p {
+      font-size: .97rem;
+      color: var(--ink-2);
+      margin-bottom: 16px;
+      max-width: 52ch;
+      line-height: 1.82
+    }
+
+    #salayaEditorial .se-mani-txt .se-lead {
+      font-family: var(--ff-thai);
+      font-size: clamp(1.15rem, 2vw, 1.6rem);
+      line-height: 1.58;
+      color: var(--ink);
+      font-weight: 300;
+      margin-bottom: 24px
+    }
+
+    #salayaEditorial .se-mani-art {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      aspect-ratio: 1/1.04
+    }
+
+    #salayaEditorial .se-mani-art figure {
+      overflow: hidden;
+      position: relative;
+      background: var(--cream-dp)
+    }
+
+    #salayaEditorial .se-mani-art .se-a {
+      grid-column: 1/5;
+      grid-row: 1/4
+    }
+
+    #salayaEditorial .se-mani-art .se-b {
+      grid-column: 5/7;
+      grid-row: 2/5;
+      align-self: end
+    }
+
+    #salayaEditorial .se-mani-art .se-c {
+      grid-column: 1/4;
+      grid-row: 4/6
+    }
+
+    #salayaEditorial .se-mani-art img {
+      transition: transform 1.5s var(--ease)
+    }
+
+    #salayaEditorial .se-mani-art figure:hover img {
+      transform: scale(1.06)
+    }
+
+    #salayaEditorial .se-stat-row {
+      display: flex;
+      gap: 40px;
+      margin-top: 34px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+      flex-wrap: wrap
+    }
+
+    #salayaEditorial .se-stat b {
+      display: block;
+      font-family: var(--ff-dis);
+      font-size: 2.1rem;
+      font-weight: 500;
+      line-height: 1;
+      color: var(--brown)
+    }
+
+    #salayaEditorial .se-stat span {
+      font-size: .66rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--brown-400)
+    }
+
+    /* ══════════ EXPERIENCE — EDITORIAL ROWS ══════════ */
+    #salayaEditorial .se-exp {
+      background: var(--cream);
+      padding-bottom: clamp(40px, 6vw, 80px)
+    }
+
+    #salayaEditorial .se-realm-band {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      padding: clamp(38px, 5vw, 66px) 0 22px;
+      border-bottom: 1.5px solid var(--brown);
+      margin-bottom: 6px
+    }
+
+    #salayaEditorial .se-realm-band .se-rn {
+      font-family: var(--ff-body);
+      font-size: .68rem;
+      letter-spacing: .26em;
+      color: var(--olive-700)
+    }
+
+    #salayaEditorial .se-realm-band h3 {
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+      font-weight: 400
+    }
+
+    #salayaEditorial .se-realm-band .se-rc {
+      margin-left: auto;
+      font-size: .66rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--brown-400);
+      white-space: nowrap
+    }
+
+    #salayaEditorial .se-realm-band .se-rd {
+      flex-basis: 100%;
+      font-size: .9rem;
+      color: var(--ink-2);
+      max-width: 60ch;
+      margin-top: -6px
+    }
+
+    #salayaEditorial .se-svc {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(24px, 4vw, 64px);
+      align-items: center;
+      padding: clamp(34px, 5vw, 64px) 0;
+      border-bottom: 1px solid var(--line)
+    }
+
+    #salayaEditorial .se-svc:last-child {
+      border-bottom: none
+    }
+
+    #salayaEditorial .se-svc.se-flip .se-svc-media {
+      order: 2
+    }
+
+    #salayaEditorial .se-svc-media {
+      position: relative;
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      background: var(--cream-dp)
+    }
+
+    #salayaEditorial .se-svc-media img {
+      transition: transform 1.6s var(--ease)
+    }
+
+    #salayaEditorial .se-svc:hover .se-svc-media img {
+      transform: scale(1.045)
+    }
+
+    #salayaEditorial .se-svc-media .se-num {
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      top: 0;
+      background: var(--cream);
+      color: var(--brown);
+      padding: 11px 17px;
+      font-size: .7rem;
+      letter-spacing: .22em
+    }
+
+    #salayaEditorial .se-svc-media .se-tag {
+      position: absolute;
+      z-index: 2;
+      right: 0;
+      bottom: 0;
+      background: var(--brown-900);
+      color: var(--cream);
+      padding: 10px 16px;
+      font-size: .63rem;
+      letter-spacing: .2em;
+      text-transform: uppercase
+    }
+
+    #salayaEditorial .se-svc-txt h4 {
+      font-size: clamp(1.5rem, 2.9vw, 2.35rem);
+      margin-bottom: 8px;
+      line-height: 1.2
+    }
+
+    #salayaEditorial .se-svc-txt .se-thai-name {
+      font-family: var(--ff-thai);
+      font-size: .88rem;
+      color: var(--brown-400);
+      margin-bottom: 18px;
+      display: block
+    }
+
+    #salayaEditorial .se-svc-txt .se-lede {
+      font-size: 1rem;
+      color: var(--ink);
+      line-height: 1.8;
+      margin-bottom: 14px;
+      max-width: 50ch
+    }
+
+    #salayaEditorial .se-svc-txt .se-body {
+      font-size: .93rem;
+      color: var(--ink-2);
+      line-height: 1.85;
+      margin-bottom: 22px;
+      max-width: 52ch
+    }
+
+    #salayaEditorial .se-svc-pts {
+      list-style: none;
+      display: grid;
+      gap: 0;
+      margin-bottom: 22px;
+      max-width: 50ch
+    }
+
+    #salayaEditorial .se-svc-pts li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+      font-size: .89rem;
+      color: var(--ink);
+      line-height: 1.6
+    }
+
+    #salayaEditorial .se-svc-pts li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: var(--olive);
+      margin-top: 10px
+    }
+
+    #salayaEditorial .se-svc-pts li b {
+      font-weight: 400;
+      color: var(--brown);
+      display: block;
+      font-size: .84rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 2px
+    }
+
+    #salayaEditorial .se-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px
+    }
+
+    #salayaEditorial .se-chip {
+      font-size: .65rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 5px 11px;
+      border: 1px solid var(--line-str);
+      color: var(--brown-500)
+    }
+
+    /* ══════════ HORIZONTAL SCROLL ══════════ */
+    #salayaEditorial .se-hscroll-wrap {
+      position: relative
+    }
+
+    #salayaEditorial .se-hscroll {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      padding-bottom: 22px;
+      scroll-snap-type: x proximity;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      cursor: grab;
+      scrollbar-width: thin
+    }
+
+    #salayaEditorial .se-hscroll.dragging {
+      cursor: grabbing;
+      scroll-behavior: auto;
+      scroll-snap-type: none
+    }
+
+    #salayaEditorial .se-hscroll.dragging * {
+      pointer-events: none;
+      user-select: none
+    }
+
+    #salayaEditorial .se-hscroll::-webkit-scrollbar {
+      height: 3px
+    }
+
+    #salayaEditorial .se-hscroll::-webkit-scrollbar-track {
+      background: var(--line-lt)
+    }
+
+    #salayaEditorial .se-hscroll::-webkit-scrollbar-thumb {
+      background: var(--olive-500)
+    }
+
+    #salayaEditorial .se-hs-nav {
+      display: flex;
+      gap: 8px;
+      align-items: center
+    }
+
+    #salayaEditorial .se-hs-btn {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line-lt-s);
+      color: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .35s var(--ease)
+    }
+
+    #salayaEditorial .se-hs-btn:hover:not(:disabled) {
+      background: var(--cream);
+      color: var(--brown-900);
+      border-color: var(--cream)
+    }
+
+    #salayaEditorial .se-hs-btn:disabled {
+      opacity: .25;
+      cursor: default
+    }
+
+    #salayaEditorial .se-hs-btn svg {
+      width: 15px;
+      height: 15px
+    }
+
+    /* ══════════ A DAY ══════════ */
+    #salayaEditorial .se-day {
+      background: var(--brown-900);
+      color: var(--cream)
+    }
+
+    .se-day h2,
+    #salayaEditorial .se-day h3 {
+      color: var(--cream)
+    }
+
+    #salayaEditorial .se-day .se-sec-head {
+      margin-bottom: 30px
+    }
+
+    #salayaEditorial .se-day-head-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 26px
+    }
+
+    .day-tools {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    #salayaEditorial .se-moment {
+      flex: 0 0 clamp(230px, 24vw, 310px);
+      scroll-snap-align: start;
+      border-top: 1px solid var(--line-lt-s);
+      padding-top: 18px
+    }
+
+    #salayaEditorial .se-moment .se-t {
+      font-size: .68rem;
+      letter-spacing: .2em;
+      color: var(--olive-300);
+      margin-bottom: 14px
+    }
+
+    #salayaEditorial .se-moment .se-ph {
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      margin-bottom: 16px;
+      background: var(--brown-700)
+    }
+
+    #salayaEditorial .se-moment .se-ph img {
+      transition: transform 1.3s var(--ease)
+    }
+
+    #salayaEditorial .se-moment:hover .se-ph img {
+      transform: scale(1.06)
+    }
+
+    #salayaEditorial .se-moment h3 {
+      font-size: 1.3rem;
+      margin-bottom: 7px
+    }
+
+    #salayaEditorial .se-moment p {
+      font-size: .86rem;
+      color: rgba(239, 233, 222, .75);
+      line-height: 1.72
+    }
+
+    #salayaEditorial .se-day-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      margin-top: 34px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line-lt);
+      flex-wrap: wrap
+    }
+
+    /* ปุ่มเสียงบรรยากาศ */
+    .sound-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      padding: 10px 18px;
+      border: 1px solid var(--line-lt-s);
+      color: var(--cream);
+      font-size: .68rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      transition: .35s var(--ease)
+    }
+
+    .sound-btn:hover {
+      border-color: var(--cream)
+    }
+
+    .sound-btn.on {
+      background: var(--cream);
+      color: var(--brown-900);
+      border-color: var(--cream)
+    }
+
+    .sound-btn svg {
+      width: 14px;
+      height: 14px;
+      flex: none
+    }
+
+    .eq {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 12px;
+      width: 14px;
+      flex: none
+    }
+
+    .eq i {
+      width: 2.5px;
+      background: currentColor;
+      height: 30%;
+      transition: height .2s
+    }
+
+    .sound-btn.on .eq i {
+      animation: eqa .9s ease-in-out infinite
+    }
+
+    .sound-btn.on .eq i:nth-child(2) {
+      animation-delay: .15s
+    }
+
+    .sound-btn.on .eq i:nth-child(3) {
+      animation-delay: .3s
+    }
+
+    .sound-btn.on .eq i:nth-child(4) {
+      animation-delay: .45s
+    }
+
+    @keyframes eqa {
+
+      0%,
+      100% {
+        height: 25%
+      }
+
+      50% {
+        height: 100%
+      }
+    }
+
+    .sound-note {
+      font-size: .68rem;
+      color: rgba(239, 233, 222, .5);
+      letter-spacing: .04em
+    }
+
+    /* ══════════ VOICES / TESTIMONIALS ══════════ */
+    #salayaEditorial .se-voices {
+      background: var(--cream-hi);
+      overflow: hidden
+    }
+
+    #salayaEditorial .se-voices .se-sec-head {
+      margin-bottom: 40px
+    }
+
+    #salayaEditorial .se-v-track {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      padding-bottom: 20px;
+      scroll-snap-type: x proximity;
+      scroll-behavior: smooth;
+      cursor: grab;
+      scrollbar-width: thin
+    }
+
+    #salayaEditorial .se-v-track.dragging {
+      cursor: grabbing;
+      scroll-behavior: auto
+    }
+
+    #salayaEditorial .se-v-track.dragging * {
+      pointer-events: none;
+      user-select: none
+    }
+
+    #salayaEditorial .se-v-track::-webkit-scrollbar {
+      height: 3px
+    }
+
+    #salayaEditorial .se-v-track::-webkit-scrollbar-track {
+      background: var(--line)
+    }
+
+    #salayaEditorial .se-v-track::-webkit-scrollbar-thumb {
+      background: var(--olive)
+    }
+
+    #salayaEditorial .se-voice {
+      flex: 0 0 clamp(270px, 31vw, 400px);
+      scroll-snap-align: start;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      padding: clamp(24px, 2.8vw, 34px);
+      display: flex;
+      flex-direction: column;
+      transition: border-color .45s var(--ease), transform .45s var(--ease)
+    }
+
+    #salayaEditorial .se-voice:hover {
+      border-color: var(--brown);
+      transform: translateY(-4px)
+    }
+
+    #salayaEditorial .se-voice .se-qm {
+      font-family: var(--ff-dis);
+      font-size: 2.6rem;
+      line-height: .6;
+      color: var(--olive);
+      margin-bottom: 16px
+    }
+
+    #salayaEditorial .se-voice blockquote {
+      font-family: var(--ff-thai);
+      font-size: 1.06rem;
+      line-height: 1.68;
+      color: var(--ink);
+      margin-bottom: 22px;
+      flex: 1
+    }
+
+    #salayaEditorial .se-voice .se-who {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line)
+    }
+
+    #salayaEditorial .se-voice .se-av {
+      width: 44px;
+      height: 44px;
+      flex: none;
+      overflow: hidden;
+      background: var(--cream-dp);
+      border-radius: 50%
+    }
+
+    #salayaEditorial .se-voice .se-who b {
+      display: block;
+      font-weight: 400;
+      font-size: .92rem;
+      color: var(--brown)
+    }
+
+    #salayaEditorial .se-voice .se-who span {
+      display: block;
+      font-size: .72rem;
+      letter-spacing: .08em;
+      color: var(--brown-400)
+    }
+
+    #salayaEditorial .se-voice .se-plan {
+      margin-top: 12px;
+      font-size: .63rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--olive-700)
+    }
+
+    #salayaEditorial .se-v-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      margin-top: 32px;
+      flex-wrap: wrap
+    }
+
+    #salayaEditorial .se-v-foot .se-hs-btn {
+      border-color: var(--line-str);
+      color: var(--brown)
+    }
+
+    #salayaEditorial .se-v-foot .se-hs-btn:hover:not(:disabled) {
+      background: var(--brown);
+      color: var(--cream);
+      border-color: var(--brown)
+    }
+
+    #salayaEditorial .se-v-lead {
+      font-family: var(--ff-thai);
+      font-size: .95rem;
+      color: var(--ink-2);
+      max-width: 44ch
+    }
+  </style>
 </head>
 
 <body>
 
   <header id="hdr">
     <div class="wrap nav">
-      <div class="logo" onclick="nav('home','hero')">Salaya</div>
+      <div class="logo" onclick="nav('home','hero')">Calm Salaya</div>
       <button class="burger" onclick="document.getElementById('nlinks').classList.toggle('open')">☰</button>
       <nav class="nav-links" id="nlinks">
         <a class="nl" data-sec="hero" onclick="nav('home','hero')">Home</a>
         <a class="nl" data-sec="about" onclick="nav('home','about')">About</a>
-        <a class="nl" data-sec="services" onclick="nav('home','services')">Service</a>
+        <a class="nl" data-sec="experience" onclick="nav('home','experience')">Experience</a>
+        <a class="nl" data-sec="day" onclick="nav('home','day')">A Day</a>
+        <a class="nl" data-sec="voices" onclick="nav('home','voices')">Voices</a>
         <a class="nl" data-sec="plans" onclick="nav('home','plans')">Membership</a>
         <button class="btn btn-olive" onclick="nav('home','finder')">Find Your Package</button>
       </nav>
@@ -1593,56 +2363,469 @@
       </div>
     </div>
 
-    <section id="about">
-      <div class="wrap">
-        <div class="eyebrow">Who We Are</div>
-        <h2 class="sec-title" style="margin-top:10px">
-          เราคือศูนย์รวมสุขภาพและไลฟ์สไตล์<br>ที่ออกแบบมาเพื่อทุกช่วงของการใช้ชีวิต</h2>
-        <p class="lead">ตั้งแต่การออกกำลังกายอย่างจริงจัง การฟื้นฟูร่างกาย ไปจนถึงพื้นที่พักผ่อนและพบปะผู้คน —
-          ทุกอย่างรวมอยู่ที่เดียว</p>
-        <div class="stats">
-          <div class="stat"><b>9+</b><span>บริการด้านสุขภาพ<br>Wellness</span></div>
-          <div class="stat"><b>3</b><span>เสาหลักของประสบการณ์<br>Fit · Recover · Lifestyle</span></div>
-          <div class="stat"><b>1</b><span>Community<br>ของคนที่ใส่ใจสุขภาพเหมือนกัน</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section style="padding-top:20px">
-      <div class="wrap">
-        <div class="eyebrow">A Space That Support You</div>
-        <p class="lead" style="margin-top:8px">ทุกพื้นที่ออกแบบมาเพื่อคุณ</p>
-        <div class="pillars" id="pillars"></div>
-      </div>
-    </section>
-
-    <section id="services" style="background:var(--cream-2)">
-      <div class="wrap">
-        <div class="rail-head">
-          <div>
-            <h2 class="serif">Our Services</h2>
-            <p style="color:var(--muted);font-size:14px;max-width:340px">
-              พื้นที่และบริการที่ออกแบบมาเพื่อทุกจังหวะของร่างกายคุณ — เลื่อนดูทั้ง 9 บริการ</p>
+    <div id="salayaEditorial">
+      <section class="se-mani" id="about">
+        <div class="se-shell se-mani-grid">
+          <div class="se-mani-txt se-rv">
+            <div class="se-eyebrow">WHO WE ARE</div>
+            <p class="se-lead se-th">'สุขภาพที่ดีไม่ได้เกิดจากชั่วโมงเดียวในยิม<br />แต่เกิดจากการที่ทุกส่วนของวัน
+              ได้รับการดูแลต่อเนื่องกัน'</p>
+            <p class="se-th">เราออกแบบ Calm Salaya ให้เป็นสถานที่ที่คุณ “อยู่ได้ทั้งวัน” ไม่ใช่ที่ที่คุณ
+              “แวะมาใช้บริการ” —
+              จากการฝึกซ้อมเพื่อสมรรถนะ สู่สนาม Pickleball และเวทีมวยไทย ผ่านการนวดฟื้นฟูและออนเซ็น
+              จนถึงคาเฟ่ที่นั่งทำงานได้จริง</p>
+            <p class="se-th">ทุกพื้นที่เชื่อมต่อกันด้วยแสงธรรมชาติ วัสดุแท้ และจังหวะที่ไม่เร่งรีบ
+              เพราะเราเชื่อว่าสถาปัตยกรรมที่ดี คือจุดเริ่มต้นของการดูแลตัวเองที่ดี</p>
+            <div class="se-stat-row">
+              <div class="se-stat se-rv se-rv-d1"><b>9</b><span>Services</span></div>
+              <div class="se-stat se-rv se-rv-d2"><b>4</b><span>Realms</span></div>
+              <div class="se-stat se-rv se-rv-d3"><b>07–22</b><span>Open Daily</span></div>
+            </div>
           </div>
-          <div class="rail-nav">
-            <button class="circ" id="rPrev" onclick="rail(-1)">←</button>
-            <button class="circ" id="rNext" onclick="rail(1)">→</button>
+          <div class="se-mani-art se-rv se-rv-d1">
+            <!-- IMG-02 │ คอลลาจใบใหญ่ (ซ้ายบน) │ 4:5 │ 1000×1250 │ ภาพพื้นที่ฝึกซ้อม/โถงหลัก -->
+            <figure class="se-a"><img alt="พื้นที่ฝึกซ้อม" data-service-img="performance" src="" /></figure>
+            <!-- IMG-03 │ คอลลาจใบแคบ (ขวา) │ 3:5 │ 700×1150 │ ดีเทลวัสดุ/ต้นไม้/สถาปัตยกรรม -->
+            <figure class="se-b"><img alt="รายละเอียดวัสดุ" data-service-img="onsen" src="" /></figure>
+            <!-- IMG-04 │ คอลลาจใบล่าง (ซ้ายล่าง) │ 3:2 │ 900×600 │ มุมพักผ่อน/คาเฟ่/ล็อบบี้ -->
+            <figure class="se-c"><img alt="มุมพักผ่อน" data-service-img="cafe" src="" /></figure>
           </div>
         </div>
-        <div class="rail" id="rail"></div>
-      </div>
-    </section>
+      </section>
+      <section class="se-exp" id="experience">
+        <div class="se-shell">
+          <div class="se-sec-head se-rv">
+            <div class="se-eyebrow">The Salaya Experience</div>
+            <h2 class="se-th">เก้าบริการ<br />ในสี่อาณาเขต</h2>
+            <p class="se-th">ทุกอย่างเชื่อมต่อกันเป็นเส้นทางเดียว — เริ่มจากการฝึกซ้อมเพื่อสมรรถนะ ออกไปเล่นกีฬา
+              กลับมาฟื้นฟูร่างกาย แช่ออนเซ็น แล้วจบวันที่คาเฟ่ ทั้งหมดอยู่ภายในสถานที่เดียวกัน</p>
+          </div>
+          <!-- ─────────── REALM I · TRAIN ─────────── -->
+          <div class="se-realm-band se-rv">
+            <span class="se-rn">REALM I</span>
+            <h3>Train</h3>
+            <span class="se-rc">04 Services</span>
+            <p class="se-rd se-th">พื้นที่สำหรับพัฒนาร่างกายอย่างเป็นระบบ ตั้งแต่ความแข็งแรงพื้นฐาน
+              ไปจนถึงโปรแกรมเฉพาะบุคคล</p>
+          </div>
+          <!-- 01 · Performance Fitness -->
+          <article class="se-svc se-rv">
+            <div class="se-svc-media">
+              <!-- IMG-05 │ Performance Fitness │ 4:5 │ 1100×1375 │ โซนฟรีเวท/ฟลอร์ฝึกมุมกว้าง แสงธรรมชาติ -->
+              <img alt="Performance Fitness" data-service-img="performance" src="" />
+              <span class="se-num">01</span><span class="se-tag">Strength</span>
+            </div>
+            <div class="se-svc-txt">
+              <h4>Performance Fitness</h4>
+              <span class="se-thai-name">การออกกำลังกายเพื่อพัฒนาศักยภาพและสมรรถนะของร่างกาย</span>
+              <p class="se-lede se-th">ไม่ใช่แค่ยกเวทให้ครบเซ็ต แต่คือการฝึกให้ร่างกายทำงานได้ดีขึ้นจริงในชีวิตประจำวัน
+              </p>
+              <p class="se-body se-th">ฟลอร์ฝึกเปิดโล่งพร้อมแสงธรรมชาติ ครบทั้งโซนฟรีเวท เครื่องเล่น พื้นที่ฟังก์ชันนอล
+                และโซนคาร์ดิโอ ออกแบบเส้นทางการเคลื่อนไหวให้ไม่ติดขัดแม้ในชั่วโมงเร่งด่วน
+                พร้อมเจ้าหน้าที่ประจำฟลอร์ที่พร้อมแนะนำท่าทางให้ถูกต้องเสมอ</p>
+              <ul class="se-svc-pts">
+                <li><span><b>Strength &amp; Power</b>โซนฟรีเวท แร็ค และแท่นยกน้ำหนักมาตรฐาน</span></li>
+                <li><span><b>Functional Zone</b>พื้นที่ฝึกการเคลื่อนไหวแบบใช้งานจริง พร้อมอุปกรณ์ครบ</span></li>
+                <li><span><b>Conditioning</b>โซนคาร์ดิโอและการฝึกความทนทานแบบเป็นรอบ</span></li>
+              </ul>
+              <div class="se-chips"><span class="se-chip">Free Weights</span><span class="se-chip">Racks &amp;
+                  Platforms</span><span class="se-chip">Functional</span><span class="se-chip">Cardio</span></div>
+            </div>
+          </article>
+          <!-- 02 · Personal Training -->
+          <article class="se-svc se-flip se-rv">
+            <div class="se-svc-media">
+              <!-- IMG-06 │ Personal Training │ 4:5 │ 1100×1375 │ เทรนเนอร์สอนตัวต่อตัว มุมใกล้ เห็นการโค้ช -->
+              <img alt="Personal Training" data-service-img="pt" src="" />
+              <span class="se-num">02</span><span class="se-tag">1-on-1</span>
+            </div>
+            <div class="se-svc-txt">
+              <h4>Personal Training</h4>
+              <span class="se-thai-name">การฝึกสอนออกกำลังกายแบบส่วนบุคคล โดยเทรนเนอร์ส่วนตัว</span>
+              <p class="se-lede se-th">โปรแกรมที่สร้างจากร่างกายของคุณ ไม่ใช่จากเทมเพลตสำเร็จรูป</p>
+              <p class="se-body se-th">เริ่มจากการประเมินร่างกาย รูปแบบการเคลื่อนไหว และเป้าหมายส่วนตัว
+                แล้วออกแบบโปรแกรมเฉพาะคุณ
+                พร้อมติดตามผลเป็นรอบและปรับแผนตามความก้าวหน้า เทรนเนอร์ของเราทำงานร่วมกับทีม Recovery โดยตรง
+                เมื่อพบข้อจำกัดหรืออาการบาดเจ็บ</p>
+              <ul class="se-svc-pts">
+                <li><span><b>Assessment</b>ประเมินร่างกายและการเคลื่อนไหวก่อนเริ่มโปรแกรม</span></li>
+                <li><span><b>Program Design</b>วางโปรแกรมเฉพาะบุคคล ปรับได้ตามตารางชีวิตจริง</span></li>
+                <li><span><b>Progress Review</b>ทบทวนผลทุกรอบ พร้อมคำแนะนำด้านโภชนาการเบื้องต้น</span></li>
+              </ul>
+              <div class="se-chips"><span class="se-chip">Body Assessment</span><span class="se-chip">Custom
+                  Program</span><span class="se-chip">Progress Tracking</span><span class="se-chip">Nutrition
+                  Guide</span></div>
+            </div>
+          </article>
+          <!-- 03 · Group Training Classes -->
+          <article class="se-svc se-rv">
+            <div class="se-svc-media">
+              <!-- IMG-07 │ Group Training Classes │ 4:5 │ 1100×1375 │ คลาสกลุ่มกำลังฝึก มีโค้ชนำ เห็นพลังงานกลุ่ม -->
+              <img alt="Group Training Classes" data-service-img="group" src="" />
+              <span class="se-num">03</span><span class="se-tag">Class</span>
+            </div>
+            <div class="se-svc-txt">
+              <h4>Group Training Classes</h4>
+              <span class="se-thai-name">การออกกำลังกายแบบกลุ่ม</span>
+              <p class="se-lede se-th">พลังงานของกลุ่มพาคุณไปได้ไกลกว่าที่ฝึกคนเดียว</p>
+              <p class="se-body se-th">คลาสที่มีโค้ชนำตลอดชั่วโมง ทั้งคลาสความแข็งแรง คาร์ดิโอเป็นรอบ และคลาสฟังก์ชันนอล
+                ทุกคลาสมีการปรับระดับความหนักให้เหมาะกับแต่ละคน ตารางคลาสตั้งแต่เช้าตรู่จนถึงค่ำ จองล่วงหน้าผ่านแอปได้
+              </p>
+              <ul class="se-svc-pts">
+                <li><span><b>Coach-led</b>มีโค้ชนำและแก้ท่าให้ตลอดคลาส</span></li>
+                <li><span><b>Scalable</b>ปรับระดับได้ทุกคลาส ตั้งแต่ผู้เริ่มต้นถึงระดับสูง</span></li>
+                <li><span><b>Flexible Schedule</b>คลาสตั้งแต่ 06:30 ถึง 20:30 ทุกวัน</span></li>
+              </ul>
+              <div class="se-chips"><span class="se-chip">HIIT</span><span class="se-chip">Strength Circuit</span><span
+                  class="se-chip">Conditioning</span><span class="se-chip">Mobility</span></div>
+            </div>
+          </article>
+          <!-- 04 · Pilates & Yoga -->
+          <article class="se-svc se-flip se-rv">
+            <div class="se-svc-media">
+              <!-- IMG-08 │ Pilates & Yoga │ 4:5 │ 1100×1375 │ สตูดิโอเงียบ แสงนุ่ม เครื่อง Reformer หรือเสื่อโยคะ -->
+              <img alt="Pilates and Yoga" data-service-img="pilates" src="" />
+              <span class="se-num">04</span><span class="se-tag">Studio</span>
+            </div>
+            <div class="se-svc-txt">
+              <h4>Pilates &amp; Yoga</h4>
+              <span class="se-thai-name">พิลาทิสและโยคะ</span>
+              <p class="se-lede se-th">พื้นที่ที่ร่างกายได้กลับมาอยู่ในระเบียบ และลมหายใจได้ช้าลง</p>
+              <p class="se-body se-th">สตูดิโอเสียงนุ่มแยกจากโซนฝึกหลัก มีทั้งพิลาทิสแบบเสื่อและ Reformer
+                พร้อมคลาสโยคะหลายสไตล์ตั้งแต่ Vinyasa ที่ไหลลื่น ไปจนถึง Yin ที่เน้นการอยู่นิ่งและการหายใจ
+                เหมาะทั้งกับคนเพิ่งเริ่มและคนที่ฝึกมานาน</p>
+              <ul class="se-svc-pts">
+                <li><span><b>Reformer Pilates</b>เครื่อง Reformer มาตรฐาน คลาสละไม่เกิน 8 คน</span></li>
+                <li><span><b>Yoga</b>Vinyasa · Hatha · Yin และคลาสหายใจก่อนนอน</span></li>
+                <li><span><b>Core &amp; Alignment</b>เน้นแกนกลางลำตัวและการจัดระเบียบร่างกาย</span></li>
+              </ul>
+              <div class="se-chips"><span class="se-chip">Reformer</span><span class="se-chip">Mat Pilates</span><span
+                  class="se-chip">Vinyasa</span><span class="se-chip">Yin</span><span class="se-chip">Breathwork</span>
+              </div>
+            </div>
+          </article>
+          <!-- ─────────── REALM II · PLAY ─────────── -->
+          <div class="se-realm-band se-rv">
+            <span class="se-rn">REALM II</span>
+            <h3>Play</h3>
+            <span class="se-rc">02 Services</span>
+            <p class="se-rd se-th">กีฬาที่ทำให้การออกกำลังกายกลายเป็นเรื่องสนุก และเป็นจุดที่สมาชิกได้เจอกัน</p>
+          </div>
+          <!-- 05 · Muay Thai -->
+          <article class="se-svc se-rv">
+            <div class="se-svc-media">
+              <!-- IMG-09 │ Muay Thai │ 4:5 │ 1100×1375 │ เวทีมวย/กระสอบ/การฝึกแพดกับครูมวย -->
+              <img alt="Muay Thai" data-service-img="muaythai" src="" />
+              <span class="se-num">05</span><span class="se-tag">Combat</span>
+            </div>
+            <div class="se-svc-txt">
+              <h4>Muay Thai</h4>
+              <span class="se-thai-name">มวยไทย</span>
+              <p class="se-lede se-th">ศิลปะการต่อสู้ที่ฝึกทั้งร่างกาย สมาธิ และความอดทนไปพร้อมกัน</p>
+              <p class="se-body se-th">พื้นที่ฝึกมวยไทยที่ออกแบบมาโดยเฉพาะ ทั้งเวที กระสอบ และโซนแพด
+                ฝึกกับครูมวยที่สอนตั้งแต่พื้นฐานการยืน การก้าว และการออกอาวุธ ไปจนถึงการฝึกแพดตัวต่อตัว
+                ไม่ว่าคุณจะมาเพื่อความฟิต เพื่อคลายเครียด หรือเพื่อฝึกจริงจัง ก็มีเส้นทางรองรับ</p>
+              <ul class="se-svc-pts">
+                <li><span><b>Fundamentals</b>คลาสพื้นฐานสำหรับผู้ไม่เคยฝึกมาก่อน</span></li>
+                <li><span><b>Pad Work</b>ฝึกแพดตัวต่อตัวกับครูมวยที่มีประสบการณ์</span></li>
+                <li><span><b>Conditioning</b>คลาสความฟิตแบบมวยไทย ไม่มีการปะทะ</span></li>
+              </ul>
+              <div class="se-chips"><span class="se-chip">Beginner Class</span><span class="se-chip">Pad
+                  Work</span><span class="se-chip">Bag Training</span><span class="se-chip">Private Session</span></div>
+            </div>
+          </article>
+          <!-- 06 · Pickleball -->
+          <article class="se-svc se-flip se-rv">
+            <div class="se-svc-media">
+              <!-- IMG-10 │ Pickleball │ 4:5 │ 1100×1375 │ สนาม Pickleball มุมกว้าง หรือคนกำลังเล่นคู่ -->
+              <img alt="Pickleball" data-service-img="pickleball" src="" />
+              <span class="se-num">06</span><span class="se-tag">Court</span>
+            </div>
+            <div class="se-svc-txt">
+              <h4>Pickleball</h4>
+              <span class="se-thai-name">กีฬาแร็กเกตที่ผสมผสานเทนนิส แบดมินตัน และปิงปองเข้าด้วยกัน</span>
+              <p class="se-lede se-th">เรียนรู้ได้ในวันเดียว แต่สนุกได้ทั้งปี — กีฬาที่ทุกวัยเล่นด้วยกันได้จริง</p>
+              <p class="se-body se-th">สนามมาตรฐานพร้อมอุปกรณ์ให้ยืม ไม่ต้องเตรียมอะไรมาก็เล่นได้
+                มีทั้งช่วงเปิดเล่นอิสระที่จับคู่ให้อัตโนมัติ คลาสสำหรับผู้เริ่มต้น และลีกภายในสำหรับสมาชิกที่จัดทุกเดือน
+                —
+                เป็นจุดที่สมาชิกใหม่ได้รู้จักคนอื่นเร็วที่สุดในที่นี่</p>
+              <ul class="se-svc-pts">
+                <li><span><b>Open Play</b>ช่วงเปิดเล่นอิสระ จับคู่ให้ ไม่ต้องมาเป็นกลุ่ม</span></li>
+                <li><span><b>Beginner Clinic</b>คลาสสอนพื้นฐาน 60 นาที เล่นเป็นภายในวันเดียว</span></li>
+                <li><span><b>Member League</b>ลีกภายในทุกเดือน แบ่งระดับตามฝีมือ</span></li>
+              </ul>
+              <div class="se-chips"><span class="se-chip">Open Play</span><span class="se-chip">Beginner
+                  Clinic</span><span class="se-chip">Member League</span><span class="se-chip">Equipment Rental</span>
+              </div>
+            </div>
+          </article>
+          <!-- ─────────── REALM III · RECOVER ─────────── -->
+          <div class="se-realm-band se-rv">
+            <span class="se-rn">REALM III</span>
+            <h3>Recover</h3>
+            <span class="se-rc">02 Services</span>
+            <p class="se-rd se-th">หัวใจของ Salaya — เพราะการฟื้นฟูคือส่วนที่ทำให้การฝึกซ้อมมีความหมาย</p>
+          </div>
+          <!-- 07 · Sports Massage & Recovery -->
+          <article class="se-svc se-rv">
+            <div class="se-svc-media">
+              <!-- IMG-11 │ Sports Massage & Recovery │ 4:5 │ 1100×1375 │ ห้องนวดส่วนตัว หรือโซนอุปกรณ์ฟื้นฟู -->
+              <img alt="Sports Massage and Recovery" data-service-img="recovery" src="" />
+              <span class="se-num">07</span><span class="se-tag">Therapy</span>
+            </div>
+            <div class="se-svc-txt">
+              <h4>Sports Massage &amp; Recovery</h4>
+              <span class="se-thai-name">นวดกีฬาและการฟื้นฟูร่างกาย</span>
+              <p class="se-lede se-th">ร่างกายไม่ได้แข็งแรงขึ้นตอนที่คุณฝึก แต่แข็งแรงขึ้นตอนที่คุณฟื้นฟู</p>
+              <p class="se-body se-th">ห้องทรีตเมนต์ส่วนตัวสำหรับนวดกีฬา นวดคลายกล้ามเนื้อลึก และนวดไทยประยุกต์
+                โดยนักบำบัดที่ทำงานร่วมกับทีมเทรนเนอร์โดยตรง ต่อด้วยโซนฟื้นฟูที่เปิดให้ใช้ด้วยตัวเอง ทั้งบูตคอมเพรสชัน
+                เครื่องกระตุ้นแบบเพอร์คัสชัน การยืดเหยียดแบบมีผู้ช่วย และรอบบำบัดร้อน–เย็นที่มีเจ้าหน้าที่ดูแลตลอด</p>
+              <ul class="se-svc-pts">
+                <li><span><b>Manual Therapy</b>นวดกีฬา · นวดคลายกล้ามเนื้อลึก · นวดไทยประยุกต์</span></li>
+                <li><span><b>Recovery Zone</b>บูตคอมเพรสชัน · เพอร์คัสชัน · ยืดเหยียดแบบมีผู้ช่วย</span></li>
+                <li><span><b>Contrast Therapy</b>รอบบำบัดร้อน–เย็นที่มีเจ้าหน้าที่นำตลอดกระบวนการ</span></li>
+              </ul>
+              <div class="se-chips"><span class="se-chip">Sports Massage</span><span class="se-chip">Deep
+                  Tissue</span><span class="se-chip">Compression Boots</span><span
+                  class="se-chip">Percussion</span><span class="se-chip">Assisted
+                  Stretch</span><span class="se-chip">Contrast</span></div>
+            </div>
+          </article>
+          <!-- 08 · Onsen -->
+          <article class="se-svc se-flip se-rv">
+            <div class="se-svc-media">
+              <!-- IMG-12 │ Onsen │ 4:5 │ 1100×1375 │ บ่อออนเซ็น เห็นไอน้ำ แสงอุ่น บรรยากาศสงบ -->
+              <img alt="Onsen" data-service-img="onsen" src="" />
+              <span class="se-num">08</span><span class="se-tag">Water</span>
+            </div>
+            <div class="se-svc-txt">
+              <h4>Onsen</h4>
+              <span class="se-thai-name">ออนเซ็น</span>
+              <p class="se-lede se-th">สิบห้านาทีในน้ำอุ่น เปลี่ยนทั้งวันของคุณได้</p>
+              <p class="se-body se-th">ออนเซ็นแยกโซนชาย–หญิง ออกแบบรอบการแช่ให้ร่างกายค่อย ๆ ปรับอุณหภูมิ
+                คลายทั้งกล้ามเนื้อและระบบประสาทไปพร้อมกัน มีทั้งบ่อน้ำอุ่นหลัก บ่อน้ำเย็น ห้องอบไอน้ำ
+                และพื้นที่พักเงียบระหว่างรอบที่ไม่อนุญาตให้ใช้โทรศัพท์</p>
+              <ul class="se-svc-pts">
+                <li><span><b>Warm Bath</b>บ่อน้ำอุ่นหลัก ควบคุมอุณหภูมิตลอดวัน</span></li>
+                <li><span><b>Cold Plunge</b>บ่อน้ำเย็นสำหรับรอบสลับร้อน–เย็น</span></li>
+                <li><span><b>Quiet Deck</b>พื้นที่พักเงียบ ปลอดโทรศัพท์ ระหว่างรอบแช่</span></li>
+              </ul>
+              <div class="se-chips"><span class="se-chip">Warm Bath</span><span class="se-chip">Cold Plunge</span><span
+                  class="se-chip">Steam Room</span><span class="se-chip">Quiet Deck</span><span class="se-chip">Gender
+                  Separated</span></div>
+            </div>
+          </article>
+          <!-- ─────────── REALM IV · GATHER ─────────── -->
+          <div class="se-realm-band se-rv">
+            <span class="se-rn">REALM IV</span>
+            <h3>Gather</h3>
+            <span class="se-rc">01 Service</span>
+            <p class="se-rd se-th">พื้นที่ที่ทำให้คุณอยู่ต่อได้ — และทำให้ Salaya เป็นมากกว่าที่ออกกำลังกาย</p>
+          </div>
+          <!-- 09 · Café & Co-working -->
+          <article class="se-svc se-rv">
+            <div class="se-svc-media">
+              <!-- IMG-13 │ Café & Co-working │ 4:5 │ 1100×1375 │ คาเฟ่ + โต๊ะยาวทำงาน แสงธรรมชาติ -->
+              <img alt="Cafe and Co-working" data-service-img="cafe" src="" />
+              <span class="se-num">09</span><span class="se-tag">Fuel &amp; Work</span>
+            </div>
+            <div class="se-svc-txt">
+              <h4>Café &amp; Co-working</h4>
+              <span class="se-thai-name">พื้นที่ผสมผสานระหว่างร้านกาแฟและสถานที่ทำงานส่วนกลาง</span>
+              <p class="se-lede se-th">เหตุผลที่สมาชิกของเราอยู่ต่อหลังออกกำลังกายเสร็จ</p>
+              <p class="se-body se-th">คาเฟ่ที่เสิร์ฟกาแฟคุณภาพและเมนูที่คำนวณสารอาหารมาแล้ว
+                พร้อมเครื่องดื่มฟื้นฟูหลังฝึก
+                ด้านในมีโต๊ะยาวสำหรับนั่งทำงาน Wi-Fi ความเร็วสูง ปลั๊กครบทุกที่นั่ง และห้องประชุมเล็กสำหรับสมาชิก —
+                จุดที่คุณจะได้เจอคนที่ดูแลตัวเองเหมือนกันโดยไม่ต้องนัดกันมาก่อน</p>
+              <ul class="se-svc-pts">
+                <li><span><b>Macro-balanced Menu</b>เมนูระบุโปรตีน คาร์บ และแคลอรีชัดเจน</span></li>
+                <li><span><b>Work-ready</b>Wi-Fi · ปลั๊กทุกที่นั่ง · ห้องประชุมเล็กจองได้</span></li>
+                <li><span><b>Community Table</b>โต๊ะยาวส่วนกลาง และอีเวนต์สมาชิกทุกเดือน</span></li>
+              </ul>
+              <div class="se-chips"><span class="se-chip">Specialty Coffee</span><span class="se-chip">Recovery
+                  Drinks</span><span class="se-chip">Wi-Fi &amp; Power</span><span class="se-chip">Meeting
+                  Room</span><span class="se-chip">Community
+                  Events</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="se-day" id="day">
+        <div class="se-shell">
+          <div class="se-sec-head se-lt se-rv">
+            <div class="se-eyebrow se-lt">A Day at Salaya</div>
+            <h2 class="se-th">หนึ่งวัน<br />ที่เป็นของคุณจริง ๆ</h2>
+            <p class="se-th">ไม่ต้องเลือกว่าจะฝึกซ้อม จะเล่นกีฬา จะฟื้นฟู หรือจะนั่งทำงาน —
+              ที่นี่คุณทำได้ทั้งหมดในวันเดียว</p>
+          </div>
+          <div class="se-day-head-row se-rv">
+            <div class="se-hs-nav">
+              <button aria-label="ก่อนหน้า" class="se-hs-btn" data-dir="-1" data-hs="dayTrack"><svg fill="none"
+                  stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24">
+                  <path d="M15 5l-7 7 7 7"></path>
+                </svg></button>
+              <button aria-label="ถัดไป" class="se-hs-btn" data-dir="1" data-hs="dayTrack"><svg fill="none"
+                  stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24">
+                  <path d="M9 5l7 7-7 7"></path>
+                </svg></button>
+            </div>
 
-    <section id="classes-sec">
-      <div class="wrap">
-        <h2 class="sec-title serif">Explore Our Group Class</h2>
-        <p class="lead">คลาสกลุ่มที่หลากหลาย ครบทุกระดับความเข้มข้น เลือกที่ใช่สำหรับคุณ</p>
-        <div class="classes" id="classes"></div>
-        <div style="text-align:center"><button class="btn btn-brown" onclick="openTrial('Group Class')">Book a free
-            trial</button></div>
+          </div>
+          <div class="se-hscroll-wrap se-rv se-rv-d1">
+            <div class="se-hscroll" id="dayTrack">
+              <!-- แถบเลื่อน 6 ช่วงเวลา · ทุกใบ 4:5 · 900×1125 px -->
+              <article class="se-moment">
+                <div class="se-t">07:00 — TRAIN</div>
+                <!-- IMG-14 │ A Day #1 │ เช้าในโซนฟิตเนส แสงธรรมชาติส่องเข้า -->
+                <div class="se-ph"><img alt="เช้า Performance Fitness" data-service-img="performance" src="" /></div>
+                <h3 class="se-th">เริ่มด้วยการฝึกซ้อม</h3>
+                <p class="se-th">Performance Fitness หรือคลาสกลุ่มช่วงเช้า ในฟลอร์ที่แสงกำลังเข้ามา</p>
+              </article>
+              <article class="se-moment">
+                <div class="se-t">09:00 — FUEL</div>
+                <!-- IMG-15 │ A Day #2 │ กาแฟ/อาหารเช้าที่คาเฟ่ -->
+                <div class="se-ph"><img alt="มื้อเช้าที่คาเฟ่" data-service-img="cafe" src="" /></div>
+                <h3 class="se-th">มื้อที่คำนวณมาแล้ว</h3>
+                <p class="se-th">อาหารโปรตีนสูงและกาแฟที่ Café &amp; Co-working พร้อมมุมนั่งทำงานเงียบ ๆ</p>
+              </article>
+              <article class="se-moment">
+                <div class="se-t">11:00 — MOVE</div>
+                <!-- IMG-16 │ A Day #3 │ คลาสพิลาทิส/โยคะในสตูดิโอ -->
+                <div class="se-ph"><img alt="คลาสพิลาทิสและโยคะ" data-service-img="pilates" src="" /></div>
+                <h3 class="se-th">จัดระเบียบร่างกาย</h3>
+                <p class="se-th">คลาส Pilates &amp; Yoga สำหรับแกนกลางลำตัวและการหายใจ</p>
+              </article>
+              <article class="se-moment">
+                <div class="se-t">15:00 — PLAY</div>
+                <!-- IMG-17 │ A Day #4 │ สนาม Pickleball หรือเวทีมวยไทย -->
+                <div class="se-ph"><img alt="Pickleball และมวยไทย" data-service-img="pickleball" src="" /></div>
+                <h3 class="se-th">ออกไปเล่น</h3>
+                <p class="se-th">Pickleball กับเพื่อนสมาชิก หรือคลาสมวยไทยกับครูมวยของเรา</p>
+              </article>
+              <article class="se-moment">
+                <div class="se-t">18:00 — RECOVER</div>
+                <!-- IMG-18 │ A Day #5 │ ห้องนวด / โซนฟื้นฟู -->
+                <div class="se-ph"><img alt="นวดและฟื้นฟู" data-service-img="recovery" src="" /></div>
+                <h3 class="se-th">คืนร่างกายให้พร้อม</h3>
+                <p class="se-th">Sports Massage โซนคอมเพรสชัน และรอบบำบัดร้อน–เย็นที่มีผู้ดูแล</p>
+              </article>
+              <article class="se-moment">
+                <div class="se-t">20:00 — SOAK</div>
+                <!-- IMG-19 │ A Day #6 │ ออนเซ็นยามค่ำ เห็นไอน้ำ -->
+                <div class="se-ph"><img alt="ออนเซ็นยามค่ำ" data-service-img="onsen" src="" /></div>
+                <h3 class="se-th">ปล่อยให้วันช้าลง</h3>
+                <p class="se-th">ออนเซ็นยามค่ำ ตามด้วยห้องอบไอน้ำและมุมพักที่ไม่มีเสียงรบกวน</p>
+              </article>
+            </div>
+          </div>
+          <div class="se-day-foot se-rv">
+            <p class="se-th" style="max-width:44ch;color:rgba(239,233,222,.82)">อยากลองสักวัน?
+              เราจัดทดลองใช้บริการแบบครบทุกโซนให้คุณได้</p>
+            <button class="btn btn-olive js-book"><span>Book a Trial Day</span></button>
+          </div>
+        </div>
+      </section>
+      <section class="se-voices" id="voices">
+        <div class="se-shell">
+          <div class="se-sec-head se-rv">
+            <div class="se-eyebrow">Voices</div>
+            <h2 class="se-th">เสียงจาก<br />คนที่มาที่นี่ทุกวัน</h2>
+            <p class="se-th">ก่อนจะเลือกแพลน ลองฟังเสียงจากคนที่มาใช้บริการจริง</p>
+          </div>
+          <div class="se-v-track se-rv se-rv-d1" id="vTrack">
+            <!--
+        ╔═══════════════════════════════════════════════════════╗
+        ║  รูปสมาชิกในการ์ดรีวิว — วงกลมเล็ก                      ║
+        ║  ทุกใบ: จัตุรัส 1:1 · 200×200 px · หน้าตรง ยิ้ม        ║
+        ║  ⚠ ถ้ายังไม่มีภาพจริง ให้ลบ <div class="av"> ออกได้เลย  ║
+        ╚═══════════════════════════════════════════════════════╝
+      -->
+            <figure class="se-voice">
+              <div class="se-qm">“</div>
+              <blockquote>มาที่นี่เพราะยิม แต่อยู่ต่อเพราะออนเซ็น ทุกวันนี้เลิกงานแล้วมาแช่ก่อนกลับบ้าน หลับดีขึ้นจริง ๆ
+              </blockquote>
+              <figcaption class="se-who">
+                <!-- IMG-20 │ รูปสมาชิก #1 │ 1:1 │ 200×200 -->
+                <div class="se-av" data-initials="นส"></div>
+                <div><b>ณัฐวดี ส.</b><span>Marketing Manager · สมาชิก 1 ปี</span></div>
+              </figcaption>
+              <div class="se-plan">Signature Member</div>
+            </figure>
+            <figure class="se-voice">
+              <div class="se-qm">“</div>
+              <blockquote>เล่นมวยไทยตอนเย็น แล้วต่อด้วยนวดกีฬา เทรนเนอร์กับนักบำบัดคุยกันเองเลย ไม่ต้องเล่าใหม่ทุกครั้ง
+              </blockquote>
+              <figcaption class="se-who">
+                <!-- IMG-21 │ รูปสมาชิก #2 │ 1:1 │ 200×200 -->
+                <div class="se-av" data-initials="ธว"></div>
+                <div><b>ธนกฤต ว.</b><span>Software Engineer · สมาชิก 8 เดือน</span></div>
+              </figcaption>
+              <div class="se-plan">Core Member</div>
+            </figure>
+            <figure class="se-voice">
+              <div class="se-qm">“</div>
+              <blockquote>ไม่เคยคิดว่าจะติด Pickleball ขนาดนี้ ตอนนี้มีกลุ่มเล่นประจำ 6 คน รู้จักกันจากที่นี่
+              </blockquote>
+              <figcaption class="se-who">
+                <!-- IMG-22 │ รูปสมาชิก #3 │ 1:1 │ 200×200 -->
+                <div class="se-av" data-initials="พร"></div>
+                <div><b>พิมพ์ชนก ร.</b><span>Interior Designer · สมาชิก 6 เดือน</span></div>
+              </figcaption>
+              <div class="se-plan">Core Member</div>
+            </figure>
+            <figure class="se-voice">
+              <div class="se-qm">“</div>
+              <blockquote>เรียนอยู่แถวนี้ เช้าซ้อม สายนั่งทำงานที่คาเฟ่ต่อได้เลย ประหยัดเวลาเดินทางไปเยอะมาก
+              </blockquote>
+              <figcaption class="se-who">
+                <!-- IMG-23 │ รูปสมาชิก #4 │ 1:1 │ 200×200 -->
+                <div class="se-av" data-initials="ภต"></div>
+                <div><b>ภูริ ต.</b><span>นักศึกษาปี 4 · สมาชิก 4 เดือน</span></div>
+              </figcaption>
+              <div class="se-plan">U-Rate Member</div>
+            </figure>
+            <figure class="se-voice">
+              <div class="se-qm">“</div>
+              <blockquote>เคยปวดหลังเรื้อรัง เทรนเนอร์ประเมินแล้วส่งต่อให้ทีมฟื้นฟู สามเดือนผ่านไปกลับมายกเวทได้ปกติ
+              </blockquote>
+              <figcaption class="se-who">
+                <!-- IMG-24 │ รูปสมาชิก #5 │ 1:1 │ 200×200 -->
+                <div class="se-av" data-initials="อค"></div>
+                <div><b>อรวรรณ ค.</b><span>Business Owner · สมาชิก 1.5 ปี</span></div>
+              </figcaption>
+              <div class="se-plan">Signature Member</div>
+            </figure>
+          </div>
+          <div class="se-v-foot se-rv">
+            <p class="se-v-lead se-th">พร้อมหาแพลนที่เหมาะกับคุณแล้วหรือยัง? ตอบ 4 คำถามสั้น ๆ เราจะแนะนำให้</p>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+              <div class="se-hs-nav">
+                <button aria-label="ก่อนหน้า" class="se-hs-btn" data-dir="-1" data-hs="vTrack"><svg fill="none"
+                    stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24">
+                    <path d="M15 5l-7 7 7 7"></path>
+                  </svg></button>
+                <button aria-label="ถัดไป" class="se-hs-btn" data-dir="1" data-hs="vTrack"><svg fill="none"
+                    stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24">
+                    <path d="M9 5l7 7-7 7"></path>
+                  </svg></button>
+              </div>
+              <a class="btn btn-brown" href="#package"><span>Find Your Package</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div id="legacyMounts" hidden aria-hidden="true">
+      <div id="services"><button id="rPrev"></button><button id="rNext"></button>
+        <div id="rail">
+          <div class="scard"></div>
+        </div>
       </div>
-    </section>
-
+      <div id="classes-sec">
+        <div id="classes"></div>
+      </div>
+      <div id="pillars"></div>
+    </div>
     <section id="plans" style="background:var(--cream-2)">
       <div class="wrap">
         <h2 class="sec-title serif">Membership Plans</h2>
@@ -1736,7 +2919,8 @@
         </div>
         <div>
           <h5>Explore</h5><a onclick="nav('home','hero')">Home</a><a onclick="nav('home','about')">About</a><a
-            onclick="nav('home','services')">Services</a><a onclick="nav('home','classes-sec')">Group Class</a>
+            onclick="nav('home','experience')">Experience</a><a onclick="nav('home','day')">A Day At Calm Salaya</a><a
+            onclick="nav('home','voices')">Voices</a>
         </div>
         <div>
           <h5>Membership</h5><a onclick="openPlan('signature')">Signature</a><a onclick="openPlan('core')">Core</a><a
@@ -1956,7 +3140,7 @@
     window.addEventListener('scroll', () => {
       hdrCheck();
       if (CUR.p !== 'home') return;
-      const ids = ['hero', 'about', 'services', 'plans']; let cur = 'hero';
+      const ids = ['hero', 'about', 'experience', 'day', 'voices', 'plans']; let cur = 'hero';
       ids.forEach(i => { const el = document.getElementById(i); if (el && el.getBoundingClientRect().top <= 120) cur = i; });
       CUR.sec = cur; markNav();
     });
@@ -2154,6 +3338,22 @@
         `Matches ${cnt} of 342 members with a similar profile. Fits your ${A.time.toLowerCase()} schedule and your price range. Built around ${names}${A.want.length > 3 ? ` +${A.want.length - 3} more` : ''}.`;
     }
     priceUp(); markNav();
+  </script>
+
+  <script>
+    (function () {
+      const root = document.getElementById('salayaEditorial'); if (!root) return;
+      const serviceImages = {};
+      if (typeof SERVICES !== 'undefined') SERVICES.forEach(s => serviceImages[s.id] = s.img);
+      root.querySelectorAll('[data-service-img]').forEach(img => { const src = serviceImages[img.dataset.serviceImg]; if (src) img.src = src; });
+      const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('se-in'); io.unobserve(e.target); } }), { threshold: .08, rootMargin: '0px 0px -6% 0px' });
+      root.querySelectorAll('.se-rv').forEach(el => io.observe(el));
+      root.querySelectorAll('.js-book').forEach(btn => btn.addEventListener('click', () => { if (typeof openTrial === 'function') openTrial('Trial Day'); }));
+      root.querySelectorAll('.se-hs-btn').forEach(btn => btn.addEventListener('click', () => {
+        const el = document.getElementById(btn.dataset.hs); if (!el) return;
+        const card = el.firstElementChild; el.scrollBy({ left: (card ? card.offsetWidth + 18 : 320) * (+btn.dataset.dir), behavior: 'smooth' });
+      }));
+    })();
   </script>
 </body>
 
